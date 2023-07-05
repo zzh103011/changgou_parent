@@ -37,3 +37,9 @@ hystrix:
           thread:
             # 熔断器超时时间，默认：1000/毫秒
             timeoutInMilliseconds: 20000
+logging:
+  level:
+    com:
+      changgou:
+        goods: debug
+        ibatis: debug

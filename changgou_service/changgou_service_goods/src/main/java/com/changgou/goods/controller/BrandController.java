@@ -22,7 +22,7 @@ public class BrandController {
      * 查询全部数据
      * @return
      */
-    @GetMapping
+    @GetMapping("/findAll")
     public Result findAll(){
         List<Brand> brandList = brandService.findAll();
         return new Result(true, StatusCode.OK,"查询成功",brandList) ;
