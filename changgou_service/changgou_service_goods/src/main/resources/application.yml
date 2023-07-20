@@ -43,3 +43,6 @@ logging:
       changgou:
         goods: debug
         ibatis: debug
+
+workerId: 0
+datacenterId: 0

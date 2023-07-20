@@ -5,9 +5,11 @@ eureka:
     register-with-eureka: false #是否将自己注册到eureka中
     fetch-registry: false #是否从eureka中获取信息
     service-url:
-      defaultZone: http://127.0.0.1:${server.port}/eureka/
-  instance:
-    ##指定当前服务多久与服务器连接一次，即心跳时间
-    lease-renewal-interval-in-seconds: 5
-    #告诉服务器，如果当前服务不可用，则从最后一次心跳时间t1开始，到t2为止，如果t2-t1>=30s,则立马将服务进行剔除
-    lease-expiration-duration-in-seconds: 30
+      defaultZone: http://8.136.15.64:${server.port}/eureka/
+  server:
+    enable-self-preservation: false
+#  instance:
+#    ##指定当前服务多久与服务器连接一次，即心跳时间
+#    lease-renewal-interval-in-seconds: 5
+#    #告诉服务器，如果当前服务不可用，则从最后一次心跳时间t1开始，到t2为止，如果t2-t1>=30s,则立马将服务进行剔除
+#    lease-expiration-duration-in-seconds: 30

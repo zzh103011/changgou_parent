@@ -20,16 +20,24 @@ public class BusinessListener {
         System.err.println("广告数据发生变化");
 
         //修改前数据
-        for(CanalEntry.Column column: rowData.getBeforeColumnsList()) {
-            if(column.getName().equals("position")){
-                System.out.println("发送消息到mq  ad_update_queue:"+column.getValue());
-                rabbitTemplate.convertAndSend("","ad_update_queue",column.getValue());  //发送消息到mq
-                break;
-            }
-        }
+//        for(CanalEntry.Column column: rowData.getBeforeColumnsList()) {
+//            System.out.println("修改前数据 列名 " + column.getName() + " value: " + column.getValue());
+//            if(column.getName().equals("position")){
+//                System.out.println("发送消息到mq  ad_update_queue:"+column.getValue());
+//                rabbitTemplate.convertAndSend("","ad_update_queue",column.getValue());  //发送消息到mq
+//                break;
+//            }
+//        }
 
         //修改后数据
         for(CanalEntry.Column column: rowData.getAfterColumnsList()) {
+//            if(column.getName().equals("position")){
+//                //监听到数据库变动直接调用get请求，更新数据
+//                System.out.println("修改后的数据 列名" + column.getName() + " value: " + column.getValue());
+//                String url = "http://8.136.15.64/ad_update?position=" + column.getValue();
+//                HttpClient.doGet(url);
+//                break;
+//            }
             if(column.getName().equals("position")){
                 System.out.println("发送消息到mq  ad_update_queue:"+column.getValue());
                 rabbitTemplate.convertAndSend("","ad_update_queue",column.getValue());  //发送消息到mq
